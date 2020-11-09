@@ -28,10 +28,80 @@ public class Processa{
 
                 operationTreatment(line);
 
-
             }
 
-           
+      
+    }
+
+    public double doOperation (double v1, double v2, char op){
+
+        if (op == '+'){
+            return v1+v2;
+        } else if (op == '-'){
+            return v1 - v2;
+        } else if(op == '*'){
+            return v1 * v2;
+
+        } else if(op == '/'){
+            return v1/v2;
+        } else if (op == 'm'){
+            return v1%v2;
+        }
+        return 0;
+
+    }
+
+
+    public double verifyVariables(String op0, String op1, char op){
+        double res = 0;
+        double aux1 = 0, aux2 = 0;
+        boolean found = false;
+
+        if ( isNumeric(op0) && !isNumeric(op1)){
+
+                for (DoubleVariable d: doubleVariables){
+
+                    if(d.getNome().equals(op1)){
+                        found = !found;
+
+                        res =  doOperation(Double.parseDouble(op0), d.getValor(), op);
+
+                    }
+                }
+                
+        } else if ( !isNumeric(op0) && isNumeric(op1)){
+
+            for (DoubleVariable d: doubleVariables){
+
+                if(d.getNome().equals(op0)){
+                    found = !found;
+
+                    res =  doOperation(d.getValor() , Double.parseDouble(op1), op);
+
+                }
+            }
+
+
+        } else if ( !isNumeric(op0) && !isNumeric(op1)){
+            boolean found_aux =  false;
+            for (DoubleVariable d: doubleVariables){
+
+                if(d.getNome().equals(op0)){
+                    found = !found;
+
+                    aux1 =  d.getValor();
+
+                }
+                if(d.getNome().equals(op1)){
+                    found_aux = !found_aux;
+                    aux2 =  d.getValor();
+
+                }
+            }
+            res = doOperation(aux1 , aux2, op);
+        }
+
+        return res;
     }
 
     public void operationTreatment(String line){
@@ -48,15 +118,27 @@ public class Processa{
             op[0] = spaceTreatment(op[0]);
             op[1] = spaceTreatment(op[1]);
 
-            res = Double.parseDouble(op[0]) + Double.parseDouble(op[1]);
+            if (isNumeric(op[0]) && isNumeric(op[1])){
 
-        }else if (lineSplit[1].contains("-")){
+                res = Double.parseDouble(op[0]) + Double.parseDouble(op[1]);
 
-            String[] op = lineSplit[1].split("-");
+            } else {
+                res = verifyVariables(op[0], op[1], '+');
+            }
+
+        } else if (lineSplit[1].contains("-")){
+
+             String[] op = lineSplit[1].split("-");
             op[0] = spaceTreatment(op[0]);
             op[1] = spaceTreatment(op[1]);
 
-            res = Double.parseDouble(op[0]) - Double.parseDouble(op[1]);
+            if (isNumeric(op[0]) && isNumeric(op[1])){
+
+                res = Double.parseDouble(op[0]) + Double.parseDouble(op[1]);
+
+            } else {
+                res = verifyVariables(op[0], op[1], '-');
+            }
 
         } else if (lineSplit[1].contains("*")){
 
@@ -64,7 +146,13 @@ public class Processa{
             op[0] = spaceTreatment(op[0]);
             op[1] = spaceTreatment(op[1]);
 
-            res = Double.parseDouble(op[0]) * Double.parseDouble(op[1]);
+            if (isNumeric(op[0]) && isNumeric(op[1])){
+
+                res = Double.parseDouble(op[0]) + Double.parseDouble(op[1]);
+
+            } else {
+                res = verifyVariables(op[0], op[1], '*');
+            }
 
         } else if (lineSplit[1].contains("/")){
 
@@ -72,7 +160,13 @@ public class Processa{
             op[0] = spaceTreatment(op[0]);
             op[1] = spaceTreatment(op[1]);
 
-            res = Double.parseDouble(op[0]) / Double.parseDouble(op[1]);
+            if (isNumeric(op[0]) && isNumeric(op[1])){
+
+                res = Double.parseDouble(op[0]) + Double.parseDouble(op[1]);
+
+            } else {
+                res = verifyVariables(op[0], op[1], '/');
+            }
 
         } else if (lineSplit[1].contains("%")) {
 
@@ -80,7 +174,14 @@ public class Processa{
             op[0] = spaceTreatment(op[0]);
             op[1] = spaceTreatment(op[1]);
 
-            res = Double.parseDouble(op[0]) % Double.parseDouble(op[1]);
+            if (isNumeric(op[0]) && isNumeric(op[1])){
+
+                res = Double.parseDouble(op[0]) % Double.parseDouble(op[1]);
+
+            } else {
+                System.out.println("mod");
+                verifyVariables(op[0], op[1], 'm');
+            }
 
         } else if (isNumeric(spaceTreatment(lineSplit[1]))){
 
