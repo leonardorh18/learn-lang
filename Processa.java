@@ -17,19 +17,23 @@ public class Processa{
 
     public void operationTreatment(String line){
 
-        for (char c : line.toCharArray()){
-
-            if (c == '='){
-                //System.out.println(c);
-                varTreatment(line);
-            }
-
+        if (line.contains("=")){
+            varTreatment(line);
         }
 
     }
 
     public void varTreatment(String line){
         String[] lineSplit = line.split("=");
-        System.out.println(lineSplit[0]);
+        
+        double res = 0 ;
+        
+        if (lineSplit[1].contains("+")){
+
+            String[] op = lineSplit[1].split("+");
+        }
+
+
+ 
     }
 }
