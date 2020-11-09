@@ -1,3 +1,5 @@
+import java.util.*;
+
 public class StringVariable extends Variavel{
 
  
@@ -14,7 +16,7 @@ public class StringVariable extends Variavel{
         }
     }
 
-    public setInVar(String var, String valor, List<StringVariable> stringsVariables ){
+    public void setInVar(String var, String valor, List<StringVariable> stringsVariables ){
 
         for (StringVariable s : stringsVariables){
             if (s.getNome().equals(var)){

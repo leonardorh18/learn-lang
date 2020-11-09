@@ -1,3 +1,5 @@
-aux = banana
-car = macarrao
 aux = 1
+aux = 2
+val = 3399
+tr = val
+tr = aux;

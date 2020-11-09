@@ -1,3 +1,6 @@
+
+import java.util.*;
+
 public class DoubleVariable extends Variavel{
 
 
@@ -15,7 +18,7 @@ public class DoubleVariable extends Variavel{
         }
     }
 
-    public setInVar(String var, double valor, List<DoubleVariable> doubleVariables ){
+    public void setInVar(String var, double valor, List<DoubleVariable> doubleVariables ){
 
         for (DoubleVariable s : doubleVariables){
             if (s.getNome().equals(var)){
@@ -28,6 +31,19 @@ public class DoubleVariable extends Variavel{
     }
 
     public double getValor(){
+        return this.valor;
+    }
+
+    public double getValorInList(List<DoubleVariable> doubleVariables, String nome){
+        
+
+        for (DoubleVariable s : doubleVariables){
+            if (s.getNome().equals(nome)){
+                
+              return s.getValor();
+            }
+    
+        }
         return this.valor;
     }
 
