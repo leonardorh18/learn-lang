@@ -15,6 +15,18 @@ public class DoubleVariable extends Variavel{
         }
     }
 
+    public setInVar(String var, double valor, List<DoubleVariable> doubleVariables ){
+
+        for (DoubleVariable s : doubleVariables){
+            if (s.getNome().equals(var)){
+                
+                s.setValor(valor);
+              
+            }
+    
+        }
+    }
+
     public double getValor(){
         return this.valor;
     }

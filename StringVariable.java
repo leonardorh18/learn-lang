@@ -14,6 +14,18 @@ public class StringVariable extends Variavel{
         }
     }
 
+    public setInVar(String var, String valor, List<StringVariable> stringsVariables ){
+
+        for (StringVariable s : stringsVariables){
+            if (s.getNome().equals(var)){
+                
+                s.setValor(valor);
+              
+            }
+    
+        }
+    }
+
     public String getValor(){
         return this.valor;
     }
