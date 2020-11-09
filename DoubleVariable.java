@@ -1,5 +1,8 @@
 public class DoubleVariable extends Variavel{
 
+
+
+    
     private double valor;
 
     public void setValor(double valor){

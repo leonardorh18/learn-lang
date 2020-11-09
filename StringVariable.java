@@ -1,8 +1,9 @@
 public class StringVariable extends Variavel{
 
+ 
     private String valor;
 
-    public void setValor(Stringvalor){
+    public void setValor(String valor){
         try{
 
             this.valor = valor;

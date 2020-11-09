@@ -1,4 +1,7 @@
+import java.util.*;
+
 public class Processa{
+
     List <DoubleVariable> doubleVariables = new ArrayList<DoubleVariable>();
     List <StringVariable> stringsVariables = new ArrayList<StringVariable>();
 
@@ -47,16 +50,43 @@ public class Processa{
             String[] op = lineSplit[1].split("/");
             res = Double.parseDouble(op[0]) / Double.parseDouble(op[1]);
 
+        } else if (lineSplit[1].contains("%")) {
+
+            String[] op = lineSplit[1].split("%");
+            res = Double.parseDouble(op[0]) % Double.parseDouble(op[1]);
+
         } else if (isNumeric(lineSplit[1])){
 
-            Variavel variavel =  new Variavel();
-            variavel.
+            DoubleVariable dVariable =  new DoubleVariable();
+            dVariable.setNome(lineSplit[0]);
+            dVariable.setValor(Double.parseDouble(lineSplit[1]));
+            doubleVariables.add(dVariable);
+            return;
 
 
 
+        } else {
+
+            StringVariable sVariable =  new StringVariable();
+            sVariable.setNome(lineSplit[0]);
+            sVariable.setValor(lineSplit[1]);
+
+            stringsVariables.add(sVariable);
+            return;
         }
 
-        System.out.println(res);
+    DoubleVariable dVariable =  new DoubleVariable();
+    dVariable.setNome(lineSplit[0]);
+    dVariable.setValor(res);
+    doubleVariables.add(dVariable);
+
+            // debug de pobre
+            for (StringVariable s : stringsVariables){
+                System.out.println(s.getNome() + ' ' + s.getValor());
+            }
+            for (DoubleVariable s : doubleVariables){
+                System.out.println(s.getNome() +' '+ s.getValor());
+            }
 
     }
 
