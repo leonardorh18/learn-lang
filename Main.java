@@ -20,7 +20,8 @@ public class Main{
                 Scanner input = new Scanner(file);
                 while (input.hasNextLine()) {
                     String line = input.nextLine();
-                    processa.lineSpaceTreatment(line);
+                    processa.lineTreatment(line);
+                    processa.showvariables();
             }
 
             input.close();
