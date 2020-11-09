@@ -4,8 +4,8 @@ import java.io.File;
 public class Main{
 
     public static void main(String[] args){
-        private String path;
-        private Processa processa = new Processa();
+        String path;
+        Processa processa = new Processa();
         if (args.length > 0){
             path = args[0];
         } else {
@@ -18,7 +18,7 @@ public class Main{
                 Scanner input = new Scanner(file);
                 while (input.hasNextLine()) {
                     String line = input.nextLine();
-                    processa.lineTreatment(line);
+                    processa.lineSpaceTreatment(line);
             }
 
             input.close();
