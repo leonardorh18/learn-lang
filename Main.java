@@ -4,7 +4,8 @@ import java.io.File;
 public class Main{
 
     public static void main(String[] args){
-        String path;
+        private String path;
+        private Processa processa = new Processa();
         if (args.length > 0){
             path = args[0];
         } else {
@@ -17,11 +18,11 @@ public class Main{
                 Scanner input = new Scanner(file);
                 while (input.hasNextLine()) {
                     String line = input.nextLine();
-                    System.out.println(line);
+                    processa.lineTreatment(line);
             }
 
             input.close();
-            
+
             } catch (Exception e) {
                 System.out.println("Nao foi possivel abrir o arquivo " + path);
                 e.printStackTrace();
