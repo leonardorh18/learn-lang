@@ -2,4 +2,5 @@ aux = 1
 aux = 2
 val = 3399
 tr = val
-tr = aux;
+tr = aux
+aux = ddd

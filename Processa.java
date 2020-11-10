@@ -224,6 +224,11 @@ public class Processa{
 
                 return;
                 
+            } else if (existing_variable_double(spaceTreatment(lineSplit[0]))){
+                System.out.println("Nao e possivel atribuir string a uma double");
+                System.exit(0);
+
+
             } else {
                 sVariable.setNome(lineSplit[0]);
                 sVariable.setValor(lineSplit[1]);
