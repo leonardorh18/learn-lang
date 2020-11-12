@@ -31,6 +31,23 @@ public class Processa{
                 operationTreatment(line);
 
             }
+            
+            if (line.contains(":")){
+                String[] splt = line.split(":");
+                if (splt[0].equals("mostrar") || splt[0].equals("mostrarln")){
+
+                    if (splt[0].equals("mostrarln")){
+
+                        Output out = new Output("ln", splt[1]);
+
+                    } else {
+
+                        Output out = new Output("wln", splt[1]);
+                    }
+                    
+
+                }
+            }
 
       
     }

@@ -1,6 +1,3 @@
-aux = 1
-aux = 2
-val = 3399
-tr = val
-tr = aux
-aux = ddd
+mostrar: Eu tenho
+mostrar: 20
+mostrar: anos
