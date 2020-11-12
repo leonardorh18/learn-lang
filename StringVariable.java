@@ -28,6 +28,30 @@ public class StringVariable extends Variavel{
         }
     }
 
+    public boolean existing_variable_string(String var, List<StringVariable> stringsVariables){
+        for (StringVariable s: stringsVariables){
+            if (s.getNome().equals(var)){
+                
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    public String getValorInList(List<StringVariable> stringsVariables, String nome){
+        
+
+        for (StringVariable s : stringsVariables){
+            if (s.getNome().equals(nome)){
+                
+              return s.getValor();
+            }
+    
+        }
+        return this.valor;
+    }
+
     public String getValor(){
         return this.valor;
     }

@@ -4,6 +4,8 @@ public class Processa{
 
     List <DoubleVariable> doubleVariables = new ArrayList<DoubleVariable>();
     List <StringVariable> stringsVariables = new ArrayList<StringVariable>();
+    DoubleVariable dVariable =  new DoubleVariable();
+    StringVariable sVariable =  new StringVariable();
      // retira os espaços
     public String spaceTreatment(String line){
 
@@ -108,8 +110,7 @@ public class Processa{
 
     //etapa inicial do tratamento das operacoes
     public void operationTreatment(String line){
-        DoubleVariable dVariable =  new DoubleVariable();
-        StringVariable sVariable =  new StringVariable();
+       
         double res = 0 ;
         String[] lineSplit = line.split("=");
         lineSplit[0] = spaceTreatment(lineSplit[0]);
@@ -188,11 +189,11 @@ public class Processa{
 
         } else if (isNumeric(spaceTreatment(lineSplit[1]))){
 
-            if (existing_variable_string(spaceTreatment(lineSplit[0]))){
+            if (sVariable.existing_variable_string(spaceTreatment(lineSplit[0]), stringsVariables)){
                 System.out.println("Nao e possivel atribuir double a uma string");
                 System.exit(0);
 
-            } else if (existing_variable_double(spaceTreatment(lineSplit[0]))){
+            } else if (dVariable.existing_variable_double(spaceTreatment(lineSplit[0]), doubleVariables)){
 
                 dVariable.setInVar(spaceTreatment(lineSplit[0]),Double.parseDouble(spaceTreatment(lineSplit[1])), doubleVariables );
                 return;
@@ -205,7 +206,7 @@ public class Processa{
             }
             
           
-        } else if (!isNumeric(spaceTreatment(lineSplit[1])) && existing_variable_double(spaceTreatment(lineSplit[1])) && !existing_variable_double(spaceTreatment(lineSplit[0])) ) {
+        } else if (!isNumeric(spaceTreatment(lineSplit[1])) && dVariable.existing_variable_double(spaceTreatment(lineSplit[1]), doubleVariables) && !dVariable.existing_variable_double(spaceTreatment(lineSplit[0]), doubleVariables) ) {
 
             dVariable.setNome(lineSplit[0]);
             //System.out.println("..." + dVariable.getValorInList(doubleVariables,  spaceTreatment(lineSplit[1])));
@@ -219,12 +220,12 @@ public class Processa{
             if (treat_existing_variables(spaceTreatment(lineSplit[0]), spaceTreatment(lineSplit[1]))){
                 //System.out.println("teste");
                 return;
-            }else if (existing_variable_string(spaceTreatment(lineSplit[0]))){
+            }else if (sVariable.existing_variable_string(spaceTreatment(lineSplit[0]), stringsVariables)){
                 sVariable.setInVar(spaceTreatment(lineSplit[0]), lineSplit[1], stringsVariables);
 
                 return;
                 
-            } else if (existing_variable_double(spaceTreatment(lineSplit[0]))){
+            } else if (dVariable.existing_variable_double(spaceTreatment(lineSplit[0]), doubleVariables)){
                 System.out.println("Nao e possivel atribuir string a uma double");
                 System.exit(0);
 
@@ -245,7 +246,7 @@ public class Processa{
     }
     public boolean treat_existing_variables(String var, String var2){
 
-        if (existing_variable_double(var) && existing_variable_double(var2)){
+        if (dVariable.existing_variable_double(var, doubleVariables) && dVariable.existing_variable_double(var2, doubleVariables)){
 
             for (DoubleVariable s : doubleVariables){
                 if (s.getNome().equals(var)){
@@ -261,7 +262,7 @@ public class Processa{
             }
             return true; //feito
         }
-        if (existing_variable_string(var) && existing_variable_string(var2)){
+        if (sVariable.existing_variable_string(var, stringsVariables) && sVariable.existing_variable_string(var2, stringsVariables)){
 
             for (StringVariable s : stringsVariables){
 
@@ -281,25 +282,9 @@ public class Processa{
         return false; 
     }   
 
-    public boolean existing_variable_string(String var){
-        for (StringVariable s: stringsVariables){
-            if (s.getNome().equals(var)){
-                return true;
-            }
-        }
-
-        return false;
-    }
+ 
     
-    public boolean existing_variable_double(String var){
-
-        for (DoubleVariable s : doubleVariables){
-            if (s.getNome().equals(var)){
-                return true;
-            }
-        }
-        return false;
-    }
+ 
 
     public void showvariables(){
         for (StringVariable s : stringsVariables){

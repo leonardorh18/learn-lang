@@ -47,5 +47,15 @@ public class DoubleVariable extends Variavel{
         return this.valor;
     }
 
+    public boolean existing_variable_double(String var, List<DoubleVariable> doubleVariables){
+
+        for (DoubleVariable s : doubleVariables){
+            if (s.getNome().equals(var)){
+                return true;
+            }
+        }
+        return false;
+    }
+
 
 }
