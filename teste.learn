@@ -1,9 +1,11 @@
-mostrarln: digite teu nome e idade
+mostrarln: digite teu nome 
 ler: nome
+
+mostrarln: digite sua idade
 ler: idade
 
-mostrar: teu nome eh 
-mostrarln: nome
+mostrarln: digite teu salario
+ler: salario
 
 
 se: idade != 18
@@ -11,7 +13,7 @@ se: idade != 18
     mostrarln: voce tem mais ou menos que 18
 
     se: idade > 18
-
+        salario = salario + 100
         mostrarln: voce tem mais de 18 anos
 
     fimse
@@ -19,7 +21,14 @@ se: idade != 18
     se: idade < 18
 
         mostrarln: voce tem menos de 18 anos
+        salario = naoexiste - 100
 
     fimse
 
 fimse
+
+mostrar: nome
+mostrar: voce tem 
+mostrar: idade
+mostrar: anos e teu salario eh de 
+mostrar: salario
