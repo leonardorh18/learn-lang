@@ -53,6 +53,11 @@ public class Conditional extends Treatment {
             return v1 <= v2;
         }
 
+        if (op == 'd'){
+
+            return v1 != v2;
+        }
+
         return false;
     }
 
@@ -74,6 +79,36 @@ public class Conditional extends Treatment {
     }
 
     public boolean verify_conditional(String text){
+
+        if (text.contains("!=") ){
+           
+            String[] splt = text.split("\\!");
+            splt[1] = remove_equal(splt[1]);
+
+            //System.out.println(splt[1]);
+            char c = 'd';
+
+            if (dVariable.existing_variable_double(spaceTreatment(splt[0]), doubleVariables) && dVariable.existing_variable_double(spaceTreatment(splt[1]), doubleVariables) ){
+
+                return compare(dVariable.getValorInList(doubleVariables, spaceTreatment(splt[0])), dVariable.getValorInList(doubleVariables, spaceTreatment(splt[1])), c);
+
+            } else if (!dVariable.existing_variable_double(spaceTreatment(splt[0]), doubleVariables) && dVariable.existing_variable_double(spaceTreatment(splt[1]), doubleVariables)){
+
+                return compare(Double.parseDouble(splt[0]), dVariable.getValorInList(doubleVariables, spaceTreatment(splt[1])), c);
+
+            } else if (dVariable.existing_variable_double(spaceTreatment(splt[0]), doubleVariables) && !dVariable.existing_variable_double(spaceTreatment(splt[1]), doubleVariables)){
+
+                return compare(dVariable.getValorInList(doubleVariables, spaceTreatment(splt[0])), Double.parseDouble(splt[1]), c);
+
+            } else if (!dVariable.existing_variable_double(spaceTreatment(splt[0]), doubleVariables) && !dVariable.existing_variable_double(spaceTreatment(splt[1]), doubleVariables)){
+
+                return compare(Double.parseDouble(splt[0]), Double.parseDouble(splt[1]), c);
+
+            }
+            
+            
+        }
+
         if (text.contains(">=") ){
            
             String[] splt = text.split("\\>");

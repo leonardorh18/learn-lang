@@ -4,14 +4,16 @@ ler: idade
 
 mostrar: teu nome eh 
 mostrar: nome
-mostrar: voce tem 
-mostrar: idade
 
-mostrarln: digite nome e idade de outra pessoa
-ler: nome
-ler: idade
 
-mostrar: teu nome eh 
-mostrar: nome
-mostrar: voce tem 
-mostrar: idade
+se: idade != 18
+
+    mostrarln: voce tem 18 anos ou mais
+
+    se: idade > 30
+
+        mostrarln: voce tem mais de 30 anos
+
+    fimse
+
+fimse

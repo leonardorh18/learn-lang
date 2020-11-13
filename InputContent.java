@@ -30,7 +30,7 @@ public class InputContent extends Treatment{
         } else if (sVariable.existing_variable_string(spaceTreatment(text), stringsVariables)){
 
             try {
-                sVariable.setInVar(spaceTreatment(text), ler.next(), stringsVariables);
+                sVariable.setInVar(spaceTreatment(text), ler.nextLine(), stringsVariables);
 
             } catch (Exception e){
 
@@ -41,7 +41,7 @@ public class InputContent extends Treatment{
 
         }
 
-        String lido = ler.next();
+        String lido = ler.nextLine();
 
         if (!dVariable.existing_variable_double(spaceTreatment(text), doubleVariables) && isNumeric(spaceTreatment(lido))){
 
