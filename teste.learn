@@ -3,16 +3,22 @@ ler: nome
 ler: idade
 
 mostrar: teu nome eh 
-mostrar: nome
+mostrarln: nome
 
 
 se: idade != 18
 
-    mostrarln: voce tem 18 anos ou mais
+    mostrarln: voce tem mais ou menos que 18
 
-    se: idade > 30
+    se: idade > 18
 
-        mostrarln: voce tem mais de 30 anos
+        mostrarln: voce tem mais de 18 anos
+
+    fimse
+
+    se: idade < 18
+
+        mostrarln: voce tem menos de 18 anos
 
     fimse
 
