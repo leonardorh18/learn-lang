@@ -1,15 +1,17 @@
-nome = leonardo
-idade = 18
+mostrarln: digite teu nome e idade
+ler: nome
+ler: idade
 
-se: idade == 18
+mostrar: teu nome eh 
+mostrar: nome
+mostrar: voce tem 
+mostrar: idade
 
-mostrarln: voce e maior de idade
+mostrarln: digite nome e idade de outra pessoa
+ler: nome
+ler: idade
 
-    se: idade > 30
-
-    mostrarln: voce tem mais de 30 anos
-
-    fimse
-
-fimse
-
+mostrar: teu nome eh 
+mostrar: nome
+mostrar: voce tem 
+mostrar: idade

@@ -2,8 +2,7 @@
 import java.util.*;
 public class Conditional extends Treatment {
 
-    public DoubleVariable dVariable =  new DoubleVariable();
-    public StringVariable sVariable =  new StringVariable();
+   
 
     private boolean begin = false;
 

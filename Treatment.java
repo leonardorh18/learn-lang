@@ -6,7 +6,7 @@ public class Treatment{
     public List <StringVariable> stringsVariables = new ArrayList<StringVariable>();
     public DoubleVariable dVariable =  new DoubleVariable();
     public StringVariable sVariable =  new StringVariable();
-    public List <Boolean> isnotConditional = new ArrayList<Boolean>();
+    private List <Boolean> isnotConditional = new ArrayList<Boolean>();
     boolean aux = false;
   
     
@@ -52,7 +52,7 @@ public class Treatment{
                 if (spaceTreatment(splt[0]).equals("mostrar") || spaceTreatment(splt[0]).equals("mostrarln")){
                     OutContent out = new OutContent(stringsVariables, doubleVariables);
 
-                    if (splt[0].equals("mostrarln")){
+                    if (spaceTreatment(splt[0]).equals("mostrarln")){
 
                         out.out_display(true, splt[1]);
 
@@ -76,6 +76,13 @@ public class Treatment{
                         
                     }
                     
+                }
+
+                if(spaceTreatment(splt[0]).equals("ler")){
+
+                    InputContent input = new InputContent(stringsVariables, doubleVariables);
+                    input.treat_input(splt[1]);
+
                 }
             }
         } else {
