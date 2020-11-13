@@ -2,10 +2,21 @@ import java.util.*;
 
 public class Processa{
 
-    List <DoubleVariable> doubleVariables = new ArrayList<DoubleVariable>();
-    List <StringVariable> stringsVariables = new ArrayList<StringVariable>();
-    DoubleVariable dVariable =  new DoubleVariable();
-    StringVariable sVariable =  new StringVariable();
+    public List <DoubleVariable> doubleVariables = new ArrayList<DoubleVariable>();
+    public List <StringVariable> stringsVariables = new ArrayList<StringVariable>();
+    private DoubleVariable dVariable =  new DoubleVariable();
+    private StringVariable sVariable =  new StringVariable();
+
+    public List<DoubleVariable> getDoubleVariables() {
+        return this.doubleVariables;
+    }
+
+    public List<StringVariable> getStringsVariables() {
+        return this.stringsVariables;
+    }
+
+ 
+    
      // retira os espaços
     public String spaceTreatment(String line){
 
@@ -35,14 +46,15 @@ public class Processa{
             if (line.contains(":")){
                 String[] splt = line.split(":");
                 if (splt[0].equals("mostrar") || splt[0].equals("mostrarln")){
+                    OutContent out = new OutContent();
 
                     if (splt[0].equals("mostrarln")){
 
-                        Output out = new Output("ln", splt[1]);
+                        out.out_display(true, splt[1]);
 
                     } else {
 
-                        Output out = new Output("wln", splt[1]);
+                        out.out_display(false, splt[1]);
                     }
                     
 
@@ -127,6 +139,8 @@ public class Processa{
 
     //etapa inicial do tratamento das operacoes
     public void operationTreatment(String line){
+         DoubleVariable dV =  new DoubleVariable();
+        StringVariable sV =  new StringVariable();
        
         double res = 0 ;
         String[] lineSplit = line.split("=");
@@ -184,7 +198,7 @@ public class Processa{
 
             if (isNumeric(op[0]) && isNumeric(op[1])){
 
-                res = Double.parseDouble(op[0]) + Double.parseDouble(op[1]);
+                res = Double.parseDouble(op[0]) / Double.parseDouble(op[1]);
 
             } else {
                 res = verifyVariables(op[0], op[1], '/');
@@ -206,29 +220,30 @@ public class Processa{
 
         } else if (isNumeric(spaceTreatment(lineSplit[1]))){
 
-            if (sVariable.existing_variable_string(spaceTreatment(lineSplit[0]), stringsVariables)){
+            if (sV.existing_variable_string(spaceTreatment(lineSplit[0]), stringsVariables)){
                 System.out.println("Nao e possivel atribuir double a uma string");
                 System.exit(0);
 
-            } else if (dVariable.existing_variable_double(spaceTreatment(lineSplit[0]), doubleVariables)){
-
-                dVariable.setInVar(spaceTreatment(lineSplit[0]),Double.parseDouble(spaceTreatment(lineSplit[1])), doubleVariables );
+            } else if (dV.existing_variable_double(spaceTreatment(lineSplit[0]), doubleVariables)){
+                System.out.println("VARIAVEL JA EXISTE");
+                dV.setInVar(spaceTreatment(lineSplit[0]),Double.parseDouble(spaceTreatment(lineSplit[1])), doubleVariables );
                 return;
             }else {
 
-                dVariable.setNome(lineSplit[0]);
-                dVariable.setValor(Double.parseDouble(lineSplit[1]));
-                doubleVariables.add(dVariable);
+                dV.setNome(spaceTreatment(lineSplit[0]));
+                dV.setValor(Double.parseDouble(lineSplit[1]));
+                doubleVariables.add(dV);
                 return;
             }
             
           
-        } else if (!isNumeric(spaceTreatment(lineSplit[1])) && dVariable.existing_variable_double(spaceTreatment(lineSplit[1]), doubleVariables) && !dVariable.existing_variable_double(spaceTreatment(lineSplit[0]), doubleVariables) ) {
-
-            dVariable.setNome(lineSplit[0]);
-            //System.out.println("..." + dVariable.getValorInList(doubleVariables,  spaceTreatment(lineSplit[1])));
-            dVariable.setValor(dVariable.getValorInList(doubleVariables,  spaceTreatment(lineSplit[1])));
-            doubleVariables.add(dVariable);
+        } else if (!isNumeric(spaceTreatment(lineSplit[1])) && dV.existing_variable_double(spaceTreatment(lineSplit[1]), doubleVariables) && !dV.existing_variable_double(spaceTreatment(lineSplit[0]), doubleVariables) ) {
+            
+            dV.setNome(spaceTreatment(lineSplit[0]));
+            
+            System.out.println("..." + dV.getValorInList(doubleVariables,  spaceTreatment(lineSplit[1])));
+            dV.setValor(dV.getValorInList(doubleVariables,  spaceTreatment(lineSplit[1])));
+            doubleVariables.add(dV);
             return;
 
 
@@ -237,28 +252,28 @@ public class Processa{
             if (treat_existing_variables(spaceTreatment(lineSplit[0]), spaceTreatment(lineSplit[1]))){
                 //System.out.println("teste");
                 return;
-            }else if (sVariable.existing_variable_string(spaceTreatment(lineSplit[0]), stringsVariables)){
-                sVariable.setInVar(spaceTreatment(lineSplit[0]), lineSplit[1], stringsVariables);
+            }else if (sV.existing_variable_string(spaceTreatment(lineSplit[0]), stringsVariables)){
+                sV.setInVar(spaceTreatment(lineSplit[0]), lineSplit[1], stringsVariables);
 
                 return;
                 
-            } else if (dVariable.existing_variable_double(spaceTreatment(lineSplit[0]), doubleVariables)){
+            } else if (dV.existing_variable_double(spaceTreatment(lineSplit[0]), doubleVariables)){
                 System.out.println("Nao e possivel atribuir string a uma double");
                 System.exit(0);
 
 
             } else {
-                sVariable.setNome(lineSplit[0]);
-                sVariable.setValor(lineSplit[1]);
-                stringsVariables.add(sVariable);
+                sV.setNome(spaceTreatment(lineSplit[0]));
+                sV.setValor(lineSplit[1]);
+                stringsVariables.add(sV);
                 return;
             }
             
         }
 
-    dVariable.setNome(lineSplit[0]);
-    dVariable.setValor(res);
-    doubleVariables.add(dVariable);
+    dV.setNome(spaceTreatment(lineSplit[0]));
+    dV.setValor(res);
+    doubleVariables.add(dV);
     
     }
     public boolean treat_existing_variables(String var, String var2){
@@ -304,6 +319,7 @@ public class Processa{
  
 
     public void showvariables(){
+        System.out.println("_____________________________________");
         for (StringVariable s : stringsVariables){
 
             System.out.println(s.getNome() + "-String-"+ s.getValor());

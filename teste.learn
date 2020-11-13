@@ -1,3 +1,5 @@
-mostrar: Eu tenho
-mostrar: 20
-mostrar: anos
+nome = Leonardo
+num = 40
+
+idade = num
+t = idade * num
