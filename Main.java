@@ -7,7 +7,7 @@ public class Main{
             
         
         String path;
-        Processa processa = new Processa();
+        Treatment t = new Treatment();
         if (args.length > 0){
             path = args[0];
         } else {
@@ -20,8 +20,8 @@ public class Main{
                 Scanner input = new Scanner(file);
                 while (input.hasNextLine()) {
                     String line = input.nextLine();
-                    processa.lineTreatment(line);
-                    //processa.showvariables();
+                   t.lineTreatment(line);
+                    //t.showvariables();
             }
 
             input.close();
@@ -31,7 +31,7 @@ public class Main{
                 e.printStackTrace();
             }
             //System.out.println("_______________FINAL__________________ ");
-            //processa.showvariables();
+            //t.showvariables();
 
     }
 

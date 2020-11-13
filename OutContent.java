@@ -1,5 +1,5 @@
 import java.util.*;
-public class OutContent extends Processa{
+public class OutContent extends Treatment{
 
     public OutContent(List <StringVariable> stringsVariables, List <DoubleVariable> doubleVariables){
 
