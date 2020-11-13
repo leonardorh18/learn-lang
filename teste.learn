@@ -1,5 +1,4 @@
 nome = Leonardo
-num = 40
-
-idade = num
-t = idade * num
+nome = angela
+titulo = nome
+titulo = maria

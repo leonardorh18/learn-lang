@@ -257,7 +257,14 @@ public class Processa{
 
                 return;
                 
-            } else if (dV.existing_variable_double(spaceTreatment(lineSplit[0]), doubleVariables)){
+            } else if (!sV.existing_variable_string(spaceTreatment(lineSplit[0]), stringsVariables) && sV.existing_variable_string(spaceTreatment(lineSplit[1]), stringsVariables)){
+                sV.setNome(spaceTreatment(lineSplit[0]));
+                sV.setValor(sV.getValorInList(stringsVariables, spaceTreatment(lineSplit[1])));
+                stringsVariables.add(sV);
+
+                return;
+
+            }else if (dV.existing_variable_double(spaceTreatment(lineSplit[0]), doubleVariables)){
                 System.out.println("Nao e possivel atribuir string a uma double");
                 System.exit(0);
 
