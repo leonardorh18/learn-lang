@@ -6,7 +6,9 @@ public class Treatment{
     public List <StringVariable> stringsVariables = new ArrayList<StringVariable>();
     public DoubleVariable dVariable =  new DoubleVariable();
     public StringVariable sVariable =  new StringVariable();
-    public boolean isnotConditional = true;
+    public List <Boolean> isnotConditional = new ArrayList<Boolean>();
+    boolean aux = false;
+  
     
 
     public List<DoubleVariable> getDoubleVariables() {
@@ -38,7 +40,7 @@ public class Treatment{
 }
 
     public void lineTreatment(String line){
-        if (isnotConditional){
+        if (isnotConditional.isEmpty()){
             if (line.contains("=")){
 
                 operationTreatment(line);
@@ -47,7 +49,7 @@ public class Treatment{
             
             if (line.contains(":")){
                 String[] splt = line.split(":");
-                if (splt[0].equals("mostrar") || splt[0].equals("mostrarln")){
+                if (spaceTreatment(splt[0]).equals("mostrar") || spaceTreatment(splt[0]).equals("mostrarln")){
                     OutContent out = new OutContent(stringsVariables, doubleVariables);
 
                     if (splt[0].equals("mostrarln")){
@@ -62,16 +64,23 @@ public class Treatment{
 
                 }
 
-                if (splt[0].equals("se")){
+                if (spaceTreatment(splt[0]).equals("se")){
 
                     Conditional conditional = new Conditional(stringsVariables, doubleVariables);
-                    isnotConditional = conditional.verify_conditional(spaceTreatment(splt[1]));                   
+                    boolean aux = conditional.verify_conditional(spaceTreatment(splt[1]));
+                    //System.out.println("É condicao");
+                    //System.out.println(aux ? "É condicao true" : "É condicao false" );
+                    if (!aux){
+                        
+                        isnotConditional.add(aux);                   
+                        
+                    }
                     
                 }
             }
         } else {
-            if (line.contains("fimse")){
-                isnotConditional = !isnotConditional;
+            if (spaceTreatment(line).equals("fimse")){
+                isnotConditional.remove(0);
             }
         }
 

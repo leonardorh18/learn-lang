@@ -80,7 +80,7 @@ public class Conditional extends Treatment {
             String[] splt = text.split("\\>");
             splt[1] = remove_equal(splt[1]);
 
-            System.out.println(splt[1]);
+            //System.out.println(splt[1]);
             char c = 'm';
 
             if (dVariable.existing_variable_double(spaceTreatment(splt[0]), doubleVariables) && dVariable.existing_variable_double(spaceTreatment(splt[1]), doubleVariables) ){
@@ -106,7 +106,7 @@ public class Conditional extends Treatment {
 
 
         if (text.contains("<=")){
-        System.out.println("aquii");
+        //System.out.println("aquii");
 
             String[] splt = text.split("\\<");
 
