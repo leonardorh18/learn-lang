@@ -29,7 +29,7 @@ public class StringVariable extends Variavel{
     }
 
     public boolean existing_variable_string(String var, List<StringVariable> stringsVariables){
-       
+        
         for (StringVariable s: stringsVariables){
             
             if (s.getNome().equals(var)){

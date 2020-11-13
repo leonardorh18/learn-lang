@@ -4,8 +4,8 @@ public class Processa{
 
     public List <DoubleVariable> doubleVariables = new ArrayList<DoubleVariable>();
     public List <StringVariable> stringsVariables = new ArrayList<StringVariable>();
-    private DoubleVariable dVariable =  new DoubleVariable();
-    private StringVariable sVariable =  new StringVariable();
+    DoubleVariable dVariable =  new DoubleVariable();
+    StringVariable sVariable =  new StringVariable();
 
     public List<DoubleVariable> getDoubleVariables() {
         return this.doubleVariables;
@@ -46,7 +46,7 @@ public class Processa{
             if (line.contains(":")){
                 String[] splt = line.split(":");
                 if (splt[0].equals("mostrar") || splt[0].equals("mostrarln")){
-                    OutContent out = new OutContent();
+                    OutContent out = new OutContent(stringsVariables, doubleVariables);
 
                     if (splt[0].equals("mostrarln")){
 

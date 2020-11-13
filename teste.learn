@@ -1,4 +1,10 @@
-nome = Leonardo
-nome = angela
-titulo = nome
-titulo = maria
+nome = leonardo
+idade = 20
+salario = 300
+salarioextra = salario + 400
+mostrar: meu nome e
+mostrar: nome 
+mostrar: eu ganho 
+mostrar: salario 
+mostrar: com extra de 
+mostrar: salarioextra

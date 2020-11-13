@@ -1,11 +1,15 @@
+import java.util.*;
 public class OutContent extends Processa{
 
-    StringVariable s = new StringVariable();
-    DoubleVariable d = new DoubleVariable();
+    public OutContent(List <StringVariable> stringsVariables, List <DoubleVariable> doubleVariables){
 
+        this.stringsVariables = stringsVariables;
+        this.doubleVariables = doubleVariables;
+
+    }
+    
     public void out_display(boolean ln, String text) {
-        System.out.println("eu odeio java");
-  
+    
         if (ln){
 
             if (output_is_variable(text)){
@@ -30,15 +34,15 @@ public class OutContent extends Processa{
     }
 
     public boolean output_is_variable(String text){
-       
-        if (s.existing_variable_string(spaceTreatment(text), stringsVariables)){
-            System.out.print("existe string"+spaceTreatment(text));
+ 
+        if (sVariable.existing_variable_string(spaceTreatment(text), stringsVariables)){
+     
             return true;
            
         }
 
-        if (d.existing_variable_double(spaceTreatment(text), doubleVariables)){
-            System.out.print("existe double"+spaceTreatment(text));
+        if (dVariable.existing_variable_double(spaceTreatment(text), doubleVariables)){
+            
             return true;
         }
 
@@ -48,22 +52,22 @@ public class OutContent extends Processa{
 
     public void out_variable(String text, boolean ln){
 
-        if (d.existing_variable_double(spaceTreatment(text), doubleVariables)){
+        if (dVariable.existing_variable_double(spaceTreatment(text), doubleVariables)){
 
             if (ln) {
-                System.out.println(d.getValorInList(doubleVariables, spaceTreatment(text)));
+                System.out.println(dVariable.getValorInList(doubleVariables, spaceTreatment(text)));
             }  else {
 
-                System.out.print(d.getValorInList(doubleVariables, spaceTreatment(text)));
+                System.out.print(dVariable.getValorInList(doubleVariables, spaceTreatment(text)));
             }
 
         } else {
 
             if (ln) {
-                System.out.println(s.getValorInList(stringsVariables, spaceTreatment(text)));
+                System.out.println(sVariable.getValorInList(stringsVariables, spaceTreatment(text)));
             }  else {
 
-                System.out.print(s.getValorInList(stringsVariables, spaceTreatment(text)));
+                System.out.print(sVariable.getValorInList(stringsVariables, spaceTreatment(text)));
             }
 
             
