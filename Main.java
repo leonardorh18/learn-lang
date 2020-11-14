@@ -21,7 +21,7 @@ public class Main{
                 while (input.hasNextLine()) {
                     String line = input.nextLine();
                    t.lineTreatment(line);
-                    //t.showvariables();
+                //t.showvariables();
             }
 
             input.close();
@@ -30,8 +30,8 @@ public class Main{
                 System.out.println("Nao foi possivel abrir o arquivo " + path);
                 e.printStackTrace();
             }
-            //System.out.println("_______________FINAL__________________ ");
-            //t.showvariables();
+            System.out.println("_______________FINAL__________________ ");
+            t.showvariables();
 
     }
 

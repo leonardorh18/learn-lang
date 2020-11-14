@@ -1,34 +1,13 @@
-mostrarln: digite teu nome 
-ler: nome
+numero = 0
+##PARA DENTRO DE PARA NAO FUNCIONA!!!
+para: i = 0; i < 10; i = i + 1
+    
+    para: j = 0; j< 5; j = j +1
 
-mostrarln: digite sua idade
-ler: idade
+        mostrarln: i
+        mostrarln: j
+    fimpara
 
-mostrarln: digite teu salario
-ler: salario
+fimpara
 
-
-se: idade != 18
-
-    mostrarln: voce tem mais ou menos que 18
-
-    se: idade > 18
-        salario = salario + 100
-        mostrarln: voce tem mais de 18 anos
-
-    fimse
-
-    se: idade < 18
-
-        mostrarln: voce tem menos de 18 anos
-        salario = naoexiste - 100
-
-    fimse
-
-fimse
-
-mostrar: nome
-mostrar: voce tem 
-mostrar: idade
-mostrar: anos e teu salario eh de 
-mostrar: salario
+mostrarln: acabou!!

@@ -7,7 +7,11 @@ public class Treatment{
     public DoubleVariable dVariable =  new DoubleVariable();
     public StringVariable sVariable =  new StringVariable();
     private List <Boolean> isnotConditional = new ArrayList<Boolean>();
+    public List <String> comands= new ArrayList<String>();
+    private Looping lpg;
+
     boolean aux = false;
+    boolean lp = false;
   
     
 
@@ -40,8 +44,9 @@ public class Treatment{
 }
 
     public void lineTreatment(String line){
-        if (isnotConditional.isEmpty()){
-            if (line.contains("=")){
+        Looping loop = new Looping(comands, stringsVariables, doubleVariables);
+        if (isnotConditional.isEmpty() && !lp){
+            if (line.contains("=") && !line.contains("para")){
 
                 operationTreatment(line);
 
@@ -68,7 +73,7 @@ public class Treatment{
 
                     Conditional conditional = new Conditional(stringsVariables, doubleVariables);
                     boolean aux = conditional.verify_conditional(spaceTreatment(splt[1]));
-                    //System.out.println("É condicao");
+                   // System.out.println("É condicao");
                     //System.out.println(aux ? "É condicao true" : "É condicao false" );
                     if (!aux){
                         
@@ -84,13 +89,42 @@ public class Treatment{
                     input.treat_input(splt[1]);
 
                 }
+
+                if(spaceTreatment(splt[0]).equals("para")){
+
+                   
+                    
+                    
+                    lp = loop.loop_isvalid(splt[1]);
+                    lpg = loop;
+                    return;
+                        
+                   
+                }
             }
         } else {
             if (spaceTreatment(line).equals("fimse")){
-                isnotConditional.remove(0);
+                if(!lp){
+                    isnotConditional.remove(0);
+                }
+                
+
+            } else if (spaceTreatment(line).equals("fimpara")){
+
+                //System.out.println("começando o laco");
+                lpg.do_para();
+                lp = !lp;
             }
+
+        
         }
 
+        if(lp){
+            //
+            //System.out.println("Linha - > "+ line);
+            comands.add(line);
+
+        }
       
     }
     
@@ -174,9 +208,10 @@ public class Treatment{
        
         double res = 0 ;
         String[] lineSplit = line.split("=");
+        
         lineSplit[0] = spaceTreatment(lineSplit[0]);
 
-        //System.out.println("-- "+lineSplit[1]);
+        //System.out.println("--OT "+lineSplit[0] + " " + lineSplit[1] );
         
         if (lineSplit[1].contains("+")){
 
@@ -203,6 +238,7 @@ public class Treatment{
                 res = Double.parseDouble(op[0]) + Double.parseDouble(op[1]);
 
             } else {
+
                 res = verifyVariables(op[0], op[1], '-');
             }
 
@@ -217,6 +253,7 @@ public class Treatment{
                 res = Double.parseDouble(op[0]) + Double.parseDouble(op[1]);
 
             } else {
+
                 res = verifyVariables(op[0], op[1], '*');
             }
 
@@ -259,10 +296,11 @@ public class Treatment{
                 dV.setInVar(spaceTreatment(lineSplit[0]),Double.parseDouble(spaceTreatment(lineSplit[1])), doubleVariables );
                 return;
             }else {
-
+                //System.out.println("Nome "+ spaceTreatment(lineSplit[0]) + " Valor "+ lineSplit[1]);
                 dV.setNome(spaceTreatment(lineSplit[0]));
                 dV.setValor(Double.parseDouble(lineSplit[1]));
                 doubleVariables.add(dV);
+                //System.out.println("asdasdasd");
                 return;
             }
             

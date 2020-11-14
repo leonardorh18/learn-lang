@@ -4,20 +4,7 @@ public class Conditional extends Treatment {
 
    
 
-    private boolean begin = false;
-
-
-    public boolean isBegin() {
-        return this.begin;
-    }
-
-    public boolean getBegin() {
-        return this.begin;
-    }
-
-    public void setBegin(boolean begin) {
-        this.begin = begin;
-    }
+  
 
     public Conditional(List <StringVariable> stringsVariables, List <DoubleVariable> doubleVariables){
 
@@ -198,7 +185,10 @@ public class Conditional extends Treatment {
             
 
         if (text.contains("<")){
+            //System.out.println("Entrou nessa cond");
             String[] splt = text.split("\\<");
+
+            //System.out.println(splt[0] + splt[1]);
             char c = '<';
 
             if (dVariable.existing_variable_double(spaceTreatment(splt[0]), doubleVariables) && dVariable.existing_variable_double(spaceTreatment(splt[1]), doubleVariables) ){
@@ -210,11 +200,11 @@ public class Conditional extends Treatment {
                 return compare(Double.parseDouble(splt[0]), dVariable.getValorInList(doubleVariables, spaceTreatment(splt[1])), c);
 
             } else if (dVariable.existing_variable_double(spaceTreatment(splt[0]), doubleVariables) && !dVariable.existing_variable_double(spaceTreatment(splt[1]), doubleVariables)){
-
+               // System.out.println("Entrou aqui pq existe");
                 return compare(dVariable.getValorInList(doubleVariables, spaceTreatment(splt[0])), Double.parseDouble(splt[1]), c);
 
             } else if (!dVariable.existing_variable_double(spaceTreatment(splt[0]), doubleVariables) && !dVariable.existing_variable_double(spaceTreatment(splt[1]), doubleVariables)){
-
+                //System.out.println("Entrou aqui 2");
                 return compare(Double.parseDouble(splt[0]), Double.parseDouble(splt[1]), c);
 
             }
