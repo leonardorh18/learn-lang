@@ -13,7 +13,7 @@ public class Looping extends Treatment {
     
     
     private String atribuicao = new String();
-    private String condicao = new String("oi");
+    private String condicao = new String();
     private String doit = new String();
 
 
@@ -47,16 +47,20 @@ public class Looping extends Treatment {
     Conditional cond = new Conditional(stringsVariables, doubleVariables);
 
     
-    //System.out.println(condicao);
+    
     while (cond.verify_conditional(condicao)){
-
+       
         
         for (String s: comands){
+
             //System.out.println("linha - "+ s);
             super.lineTreatment(s);
 
         }
+
         lineTreatment(doit);
+
+       
         
 
     }

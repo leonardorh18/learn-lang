@@ -1,17 +1,26 @@
 import java.util.*;
 
 public class Treatment{
-
+    
     public List <DoubleVariable> doubleVariables = new ArrayList<DoubleVariable>();
     public List <StringVariable> stringsVariables = new ArrayList<StringVariable>();
     public DoubleVariable dVariable =  new DoubleVariable();
     public StringVariable sVariable =  new StringVariable();
     private List <Boolean> isnotConditional = new ArrayList<Boolean>();
+    private List <Boolean> isLoop = new ArrayList<Boolean>();
     public List <String> comands= new ArrayList<String>();
     private Looping lpg;
 
     boolean aux = false;
     boolean lp = false;
+
+    public Treatment(){
+
+        
+
+    }
+
+   
   
     
 
@@ -44,8 +53,11 @@ public class Treatment{
 }
 
     public void lineTreatment(String line){
+  
         Looping loop = new Looping(comands, stringsVariables, doubleVariables);
-        if (isnotConditional.isEmpty() && !lp){
+
+        
+        if (isnotConditional.isEmpty() && isLoop.isEmpty() ){
             if (line.contains("=") && !line.contains("para")){
 
                 operationTreatment(line);
@@ -96,6 +108,7 @@ public class Treatment{
                     
                     
                     lp = loop.loop_isvalid(splt[1]);
+                    isLoop.add(lp);
                     lpg = loop;
                     return;
                         
@@ -104,7 +117,7 @@ public class Treatment{
             }
         } else {
             if (spaceTreatment(line).equals("fimse")){
-                if(!lp){
+                if(isLoop.isEmpty()){
                     isnotConditional.remove(0);
                 }
                 
@@ -112,8 +125,8 @@ public class Treatment{
             } else if (spaceTreatment(line).equals("fimpara")){
 
                 //System.out.println("começando o laco");
+                isLoop.remove(0);
                 lpg.do_para();
-                lp = !lp;
             }
 
         

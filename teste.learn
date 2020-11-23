@@ -1,13 +1,11 @@
 numero = 0
-##PARA DENTRO DE PARA NAO FUNCIONA!!!
+
 para: i = 0; i < 10; i = i + 1
-    
-    para: j = 0; j< 5; j = j +1
-
-        mostrarln: i
-        mostrarln: j
-    fimpara
-
+    n = i%2
+    se: n == 0
+        mostrar: i
+        mostrarln: eh par 
+    fimse
 fimpara
 
-mostrarln: acabou!!
+mostrarln: acabou
