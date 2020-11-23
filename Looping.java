@@ -46,15 +46,28 @@ public class Looping extends Treatment {
     public void do_para(){
     Conditional cond = new Conditional(stringsVariables, doubleVariables);
 
-    
+    boolean lp = false;
     
     while (cond.verify_conditional(condicao)){
        
         
         for (String s: comands){
+            if (s.contains("para:") || lp){
+                //System.out.println("linha - "+ s);
+                String[] splt = s.split(":");
+                //System.out.println("linha - "+ splt[0]);
+                if (spaceTreatment(splt[0]).equals("para")){
+                    //System.out.println("Criando... ");
+                    lp = true;
+                    Treatment t = new Treatment(stringsVariables, doubleVariables);
+                    t.lineTreatment(s);
 
+                    
+                }
+            }
             //System.out.println("linha - "+ s);
             super.lineTreatment(s);
+            //System.out.println("AQUIII ");
 
         }
 

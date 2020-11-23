@@ -20,6 +20,13 @@ public class Treatment{
 
     }
 
+    public Treatment(List<StringVariable> stringsVariables, List <DoubleVariable> doubleVariables){
+
+        this.stringsVariables = stringsVariables;
+        this.doubleVariables = doubleVariables;
+
+    }
+
    
   
     
