@@ -65,7 +65,7 @@ public class Treatment{
 
         
         if (isnotConditional.isEmpty() && isLoop.isEmpty() ){
-            if (line.contains("=") && !line.contains("para")){
+            if (line.contains("=") && !line.contains("para:") && !line.contains("se:")){
 
                 operationTreatment(line);
 
@@ -99,6 +99,7 @@ public class Treatment{
                         isnotConditional.add(aux);                   
                         
                     }
+                    return;
                     
                 }
 
