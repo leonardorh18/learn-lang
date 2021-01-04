@@ -10,13 +10,11 @@ public class Treatment{
     private List <Boolean> isLoop = new ArrayList<Boolean>();
     public List <String> comands= new ArrayList<String>();
     private Looping lpg;
-
     boolean aux = false;
     boolean lp = false;
 
     public Treatment(){
-
-        
+  
 
     }
 
@@ -26,10 +24,6 @@ public class Treatment{
         this.doubleVariables = doubleVariables;
 
     }
-
-   
-  
-    
 
     public List<DoubleVariable> getDoubleVariables() {
         return this.doubleVariables;
@@ -58,7 +52,7 @@ public class Treatment{
  
 
 }
-
+    //Faz o tratamento da linha recebida e toma a "decisao" do que fazer
     public void lineTreatment(String line){
   
         Looping loop = new Looping(comands, stringsVariables, doubleVariables);
@@ -112,8 +106,6 @@ public class Treatment{
 
                 if(spaceTreatment(splt[0]).equals("para")){
 
-                   
-                    
                     
                     lp = loop.loop_isvalid(splt[1]);
                     isLoop.add(lp);
@@ -149,7 +141,7 @@ public class Treatment{
       
     }
     
-    // vê qual operacao fazer
+    // Return o resultado e "vê" qual operacao fazer
     public double doOperation (double v1, double v2, char op){
 
         if (op == '+'){
@@ -222,7 +214,8 @@ public class Treatment{
         return res;
     }
 
-    //etapa inicial do tratamento das operacoes
+    //etapa inicial do tratamento das operacoes (atribuição e operações matematicas), possui varias condições para declarar ou somar variaveis,
+    // se a variavel é string e double, se é double, se ela existe.. etc
     public void operationTreatment(String line){
          DoubleVariable dV =  new DoubleVariable();
         StringVariable sV =  new StringVariable();
@@ -382,6 +375,8 @@ public class Treatment{
     }
    
     }
+
+    //funcao que trata variaveis ja existentes. Retorna true se a variavel ja esta declarada
     public boolean treat_existing_variables(String var, String var2){
 
         if (dVariable.existing_variable_double(var, doubleVariables) && dVariable.existing_variable_double(var2, doubleVariables)){
@@ -423,7 +418,7 @@ public class Treatment{
  
     
  
-
+    //mostra as variaveis
     public void showvariables(){
         System.out.println("_____________________________________");
         for (StringVariable s : stringsVariables){
@@ -435,7 +430,7 @@ public class Treatment{
         }
     }
 
-
+    //verifica se a variavel é numerica
     public static boolean isNumeric(String str) { 
         try {  
           Double.parseDouble(str);  

@@ -30,8 +30,8 @@ public class Main{
                 System.out.println("Nao foi possivel abrir o arquivo " + path);
                 e.printStackTrace();
             }
-            System.out.println("_______________FINAL__________________ ");
-            t.showvariables();
+            //System.out.println("_______________FINAL__________________ ");
+            //t.showvariables();
 
     }
 
