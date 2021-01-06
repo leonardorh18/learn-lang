@@ -1,0 +1,18 @@
+numero = 0
+
+para: i = 0; i < 20; i = i + 1
+    numero = i%2
+    se: numero == 0
+        mostrar: i
+        mostrarln: eh par!!
+    fimse
+
+    se: numero != 0
+        mostrar: i
+        mostrarln: eh impar!!
+    fimse
+
+
+fimpara
+
+mostrarln: acabou!!
