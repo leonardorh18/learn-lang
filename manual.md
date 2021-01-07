@@ -15,9 +15,13 @@ numero = 4+4
 Só aceita uma operação 
 ## leitura 
 para ler dados usa-se o comando ler:
+
 numero = 0
+
 mostrarln: digite um numero
+
 ler: numero
+
 ## condicao SE (IF)
 se: numero > 0
 
