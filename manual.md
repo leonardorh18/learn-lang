@@ -56,6 +56,7 @@ mostrar: nome
 as variaveis devem ser mostradas em um "mostar" separado com somente elas
 
 ## EXEMPLO 1
+# Par e impar
 numero = 0
 
 para: i = 0; i < 20; i = i + 1
@@ -84,6 +85,7 @@ fimpara
 mostrarln: acabou!!
 
 ## EXEMPLO 2
+# media a partir da quantidade de numeros digitados
 
 qtd = 0
 
@@ -116,6 +118,8 @@ res = v / count
 mostrarln: res
 
 ## EXEMPLO 3
+# media simples
+
 leitura1 = 0
 
 leitura2 = 0
