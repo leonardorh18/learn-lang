@@ -1,0 +1,20 @@
+qtd = 0
+mostrarln: Digite quantos numeros quer digitar 
+ler: qtd 
+
+v = 0
+aux = 0
+count = 0
+para: i = 0; i < qtd; i = i + 1
+
+    mostrarln: Digite um valor
+    ler: aux
+    v = v + aux
+    count = count + 1
+fimpara
+
+mostrar: A media final eh 
+
+res = v / count
+
+mostrarln: res

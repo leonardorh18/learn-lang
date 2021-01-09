@@ -46,3 +46,84 @@ mostrarln: nome
 mostrar: nome
 
 as variaveis devem ser mostradas em um "mostar" separado com somente elas
+
+## EXEMPLO 1
+numero = 0
+
+para: i = 0; i < 20; i = i + 1
+
+    numero = i%2
+
+    se: numero == 0
+
+        mostrar: i
+
+        mostrarln: eh par!!
+
+    fimse
+
+    se: numero != 0
+
+        mostrar: i
+
+        mostrarln: eh impar!!
+
+    fimse
+
+
+fimpara
+
+mostrarln: acabou!!
+
+## EXEMPLO 2
+
+qtd = 0
+
+mostrarln: Digite quantos numeros quer digitar 
+
+ler: qtd 
+
+v = 0
+
+aux = 0
+
+count = 0
+
+para: i = 0; i < qtd; i = i + 1
+
+    mostrarln: Digite um valor
+
+    ler: aux
+
+    v = v + aux
+
+    count = count + 1
+
+fimpara
+
+mostrar: A media final eh 
+
+res = v / count
+
+mostrarln: res
+
+## EXEMPLO 3
+leitura1 = 0
+
+leitura2 = 0
+
+mostrarln: Digite o primeiro numero
+
+ler: leitura1 
+
+mostrarln: Digite o segundo numero
+
+ler: leitura2
+
+v = leitura2 + leitura1 
+
+v = v/2
+
+mostrarln: a media eh 
+
+mostrar: v

@@ -1,0 +1,12 @@
+leitura1 = 0
+leitura2 = 0
+mostrarln: Digite o primeiro numero
+ler: leitura1 
+mostrarln: Digite o segundo numero
+ler: leitura2
+
+v = leitura2 + leitura1 
+v = v/2
+
+mostrarln: a media eh 
+mostrar: v

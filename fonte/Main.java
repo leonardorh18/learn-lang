@@ -9,14 +9,17 @@ public class Main{
         String path;
         Treatment t = new Treatment();
         if (args.length > 0){
+
+        
             path = args[0];
+            
         } else {
             System.out.println("Arquivo nao especificado.");
             return;
         }
 
         try {
-                File file = new File(path);
+                File file = new File(path+".learn");
                 Scanner input = new Scanner(file);
                 while (input.hasNextLine()) {
                     String line = input.nextLine();
