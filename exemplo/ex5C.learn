@@ -1,0 +1,11 @@
+a = 0
+
+se: a > 1
+mostrarln: Eh maior que 1 !!!
+fimse
+
+se: a <= 1
+
+mostrarln: Eh menor ou igual a 1 !!!
+
+fimse

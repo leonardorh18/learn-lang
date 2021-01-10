@@ -127,7 +127,7 @@ public class Conditional extends Treatment {
 
 
         if (text.contains("<=")){
-        //System.out.println("aquii");
+         //System.out.println("aquii");
 
             String[] splt = text.split("\\<");
 

@@ -69,7 +69,11 @@ public class Treatment{
                 String[] splt = line.split(":");
                 if (spaceTreatment(splt[0]).equals("mostrar") || spaceTreatment(splt[0]).equals("mostrarln")){
                     OutContent out = new OutContent(stringsVariables, doubleVariables);
-
+                    if (splt.length > 2){
+                        for (int i = 2; i < splt.length; i++){
+                            splt[1] = splt[1] + splt[i];
+                        }
+                    }
                     if (spaceTreatment(splt[0]).equals("mostrarln")){
 
                         out.out_display(true, splt[1]);

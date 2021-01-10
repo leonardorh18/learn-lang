@@ -1,0 +1,7 @@
+a = 1 + 1
+b = 3 + a
+mostrar: Valor de A 
+mostrarln: a 
+
+mostrar: Valor de B 
+mostrarln: b

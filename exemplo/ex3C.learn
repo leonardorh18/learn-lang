@@ -1,0 +1,7 @@
+num = 10
+
+para: i = 0; i <= num; i = i +1
+
+mostrarln: i 
+
+fimpara

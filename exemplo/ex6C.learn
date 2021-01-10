@@ -1,0 +1,25 @@
+i = 0
+j = i 
+
+para: i = 0; i < 3; i = i + 1
+    se: i == 0
+        mostrarln: Eh zero!!
+    fimse 
+
+    se: i != 0 
+
+        mostrarln: Eh diferente de 0!!
+
+    fimse 
+    fimpara 
+
+se: i == 3
+    se: j == 0:
+        mostrarln: OK!!
+    fimse 
+
+    se: j != 0
+
+        mostrarln: Erro!!
+    fimse 
+fimse
