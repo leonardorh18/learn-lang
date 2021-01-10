@@ -1,3 +1,10 @@
+/*
+Autor: Leonardo Heidrich Rocha
+Estudante de Ciência da Computação na Universidade Federal da Fronteira Sul - Chapecó
+Se você quer usar esse código eu deixo ok? fica livre pra fazer o que quiser meu amigo(a)
+*/
+
+
 import java.util.Scanner;
 import java.io.File;
 
