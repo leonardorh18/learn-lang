@@ -1,0 +1,12 @@
+nome = nome
+string =leonardo
+
+ler: nome
+
+se: nome != string 
+    mostrarln: eh diferente 
+fimse
+
+se: nome == string 
+    mostrarln: eh igual 
+fimse

@@ -87,13 +87,15 @@ public class Conditional extends Treatment {
 
                 return compare(dVariable.getValorInList(doubleVariables, spaceTreatment(splt[0])), Double.parseDouble(splt[1]), c);
 
-            } else if (!dVariable.existing_variable_double(spaceTreatment(splt[0]), doubleVariables) && !dVariable.existing_variable_double(spaceTreatment(splt[1]), doubleVariables)){
+            } else if (!dVariable.existing_variable_double(spaceTreatment(splt[0]), doubleVariables) && !dVariable.existing_variable_double(spaceTreatment(splt[1]), doubleVariables) && !sVariable.existing_variable_string(spaceTreatment(splt[0]), stringsVariables) && !sVariable.existing_variable_string(spaceTreatment(splt[0]), stringsVariables)){
 
                 return compare(Double.parseDouble(splt[0]), Double.parseDouble(splt[1]), c);
 
-            }
-            
-            
+            } else if (sVariable.existing_variable_string(spaceTreatment(splt[0]), stringsVariables) && sVariable.existing_variable_string(spaceTreatment(splt[0]), stringsVariables) ){
+
+                return !sVariable.getValorInList(stringsVariables, spaceTreatment(splt[0])).equals( sVariable.getValorInList(stringsVariables, spaceTreatment(splt[1])));
+
+            } 
         }
 
         if (text.contains(">=") ){
@@ -229,11 +231,15 @@ public class Conditional extends Treatment {
 
                 return compare(dVariable.getValorInList(doubleVariables, spaceTreatment(splt[0])), Double.parseDouble(splt[1]), c);
 
-            } else if (!dVariable.existing_variable_double(spaceTreatment(splt[0]), doubleVariables) && !dVariable.existing_variable_double(spaceTreatment(splt[1]), doubleVariables)){
+            } else if (!dVariable.existing_variable_double(spaceTreatment(splt[0]), doubleVariables) && !dVariable.existing_variable_double(spaceTreatment(splt[1]), doubleVariables) && !sVariable.existing_variable_string(spaceTreatment(splt[0]), stringsVariables) && !sVariable.existing_variable_string(spaceTreatment(splt[0]), stringsVariables)){
 
                 return compare(Double.parseDouble(splt[0]), Double.parseDouble(splt[1]), c);
 
-            }
+            } else if (sVariable.existing_variable_string(spaceTreatment(splt[0]), stringsVariables) && sVariable.existing_variable_string(spaceTreatment(splt[0]), stringsVariables) ){
+
+                return sVariable.getValorInList(stringsVariables, spaceTreatment(splt[0])).equals( sVariable.getValorInList(stringsVariables, spaceTreatment(splt[1])));
+
+            } 
           
             
         }
