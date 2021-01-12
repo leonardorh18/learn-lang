@@ -1,3 +1,12 @@
+# COMO EXECUTAR
+para executar bastar compilar os arquivos e exercutas da seguinte forma
+
+java Main nomedoarquivo (sem o .learn)
+
+se meu arquivo se chama teste.learn
+
+java Main teste
+
 # learn-lang
 Linguagem de programação learn
 
