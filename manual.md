@@ -159,3 +159,99 @@ v = v/2
 mostrarln: a media eh 
 
 mostrar: v
+
+# EXEMPLOS EXTRAS:
+## 1
+
+numero = 0
+qntd = 0 
+
+mostrarln: Digite ate que numero quer saber pares e impares
+
+ler: qntd
+
+para: i = 1; i <= qntd; i = i + 1
+
+    numero = i%2
+
+    se: numero == 0
+
+        mostrar: i
+
+        mostrarln: eh par!!
+
+    fimse
+
+    se: numero != 0
+
+        mostrar: i
+
+        mostrarln: eh impar!!
+
+    fimse
+
+
+fimpara
+
+mostrarln: acabou!!
+
+# 2
+
+num = 10
+
+para: i = 0; i <= num; i = i +1
+
+mostrarln: i 
+
+fimpara
+
+# 3
+
+a = 1 + 1
+
+b = 3 + a
+
+mostrar: Valor de A 
+
+mostrarln: a 
+
+mostrar: Valor de B 
+
+mostrarln: b
+
+# 4 
+
+i = 0
+j = i 
+
+para: i = 0; i < 3; i = i + 1
+
+    se: i == 0
+
+        mostrarln: Eh zero!!
+
+    fimse 
+
+    se: i != 0 
+
+        mostrarln: Eh diferente de 0!!
+
+    fimse 
+
+    fimpara 
+
+se: i == 3
+
+    se: j == 0:
+
+        mostrarln: OK!!
+
+    fimse 
+
+    se: j != 0
+
+        mostrarln: Erro!!
+
+    fimse 
+    
+fimse
