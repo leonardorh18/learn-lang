@@ -168,16 +168,15 @@ public class Treatment{
 
     // verifica o tipo das variaveis pra mandar pra doOperation
     public double verifyVariables(String op0, String op1, char op){
-        double res = 10;
+        double res = 0;
         double aux1 = 0, aux2 = 0;
-        boolean found = false;
 
         if ( isNumeric(op0) && !isNumeric(op1)){
 
                 for (DoubleVariable d: doubleVariables){
 
                     if(d.getNome().equals(op1)){
-                        found = !found;
+                       
 
                         res =  doOperation(Double.parseDouble(op0), d.getValor(), op);
 
@@ -189,8 +188,7 @@ public class Treatment{
             for (DoubleVariable d: doubleVariables){
 
                 if(d.getNome().equals(op0)){
-                    found = !found;
-                   
+                    
                     res =  doOperation(d.getValor() , Double.parseDouble(op1), op);
 
                 }
@@ -198,22 +196,18 @@ public class Treatment{
 
 
         } else if ( !isNumeric(op0) && !isNumeric(op1)){
-            boolean found_aux =  false;
-            for (DoubleVariable d: doubleVariables){
+            
+            if (dVariable.existing_variable_double(spaceTreatment(op0), doubleVariables) && dVariable.existing_variable_double(spaceTreatment(op1), doubleVariables) ){
+                
+                res = doOperation(dVariable.getValorInList(doubleVariables ,spaceTreatment(op0)) , dVariable.getValorInList(doubleVariables,spaceTreatment(op1)), op);
 
-                if(d.getNome().equals(op0)){
-                    found = !found;
-                    aux1 =  d.getValor();
-
-                }
-                if(d.getNome().equals(op1)){
-                    found_aux = !found_aux;
-                    aux2 =  d.getValor();
-
-                }
+            } else {
+                System.out.println("ERRO: Houve um erro");
+                System.exit(0);
             }
-            res = doOperation(aux1 , aux2, op);
+
         }
+        
        
         return res;
     }
@@ -221,7 +215,7 @@ public class Treatment{
     //etapa inicial do tratamento das operacoes (atribuição e operações matematicas), possui varias condições para declarar ou somar variaveis,
     // se a variavel é string e double, se é double, se ela existe.. etc
     public void operationTreatment(String line){
-         DoubleVariable dV =  new DoubleVariable();
+        DoubleVariable dV =  new DoubleVariable();
         StringVariable sV =  new StringVariable();
        
         double res = 0 ;
@@ -234,14 +228,30 @@ public class Treatment{
         if (lineSplit[1].contains("+")){
 
             String[] op = lineSplit[1].split("\\+");
-            op[0] = spaceTreatment(op[0]);
-            op[1] = spaceTreatment(op[1]);
 
-            if (isNumeric(op[0]) && isNumeric(op[1])){
-
+            if (isNumeric(spaceTreatment(op[0])) && isNumeric(spaceTreatment(op[1]))){
+                op[0] = spaceTreatment(op[0]);
+                op[1] = spaceTreatment(op[1]);
                 res = Double.parseDouble(op[0]) + Double.parseDouble(op[1]);
 
+            } else if (sVariable.existing_variable_string(spaceTreatment(op[0]), stringsVariables) && sVariable.existing_variable_string(spaceTreatment(op[1]), stringsVariables)){
+                String str = sVariable.getValorInList(stringsVariables, spaceTreatment(op[0])) + sVariable.getValorInList(stringsVariables, spaceTreatment(op[1]));
+
+                if (sVariable.existing_variable_string(lineSplit[0], stringsVariables)){
+                    
+                    sVariable.setInVar(lineSplit[0], str, stringsVariables);
+                    return;
+                }else {
+                    sV.setNome(lineSplit[0]);
+                    sV.setValor(str);
+                    stringsVariables.add(sV);
+                    return;
+                }
+
+
             } else {
+                op[0] = spaceTreatment(op[0]);
+                op[1] = spaceTreatment(op[1]);
                 res = verifyVariables(op[0], op[1], '+');
             }
 

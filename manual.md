@@ -27,13 +27,29 @@ num = 1
 
 numero = 4 + num
 
-Só aceita uma operação e nao aceita operações com strings (por enquanto)
+Só aceita uma operação 
+
 
 # para  declarar uma variavel string:
 nome =Leonardo (desse jeito ele considera "Leonardo")
 
-
 nome = Leonardo (desse jeito ele considera " Leonardo", note o espaço antes do L)
+
+---- exemplo ----
+
+sobrenome = rocha
+
+nome = leonardo
+
+nomecompleto = nome + sobrenome
+
+mostrarln: nomecompleto 
+
+(saida vai ser: leonardo rocha)
+
+só é possivel somar strings declaradas
+
+
 ## leitura 
 para ler dados usa-se o comando ler:
 
@@ -277,3 +293,14 @@ para: i = 0; nome != acerta; i = i +1
     fimse
     
 fimpara
+
+## 6
+
+sobrenome = rocha
+
+nome = leonardo
+
+nome = nome + sobrenome
+
+mostrarln: nome
+

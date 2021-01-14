@@ -1,0 +1,9 @@
+sobrenome = rocha
+nome = leonardo
+
+
+completo = nome + sobrenome
+
+
+mostrarln: completo
+
