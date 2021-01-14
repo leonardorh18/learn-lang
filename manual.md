@@ -1,3 +1,6 @@
+# learn-lang
+Linguagem de programação learn
+
 # COMO EXECUTAR
 para executar bastar compilar os arquivos e exercutas da seguinte forma
 
@@ -7,21 +10,27 @@ se meu arquivo se chama teste.learn
 
 java Main teste
 
-# learn-lang
-Linguagem de programação learn
+
 
 ## declaracao de variavel
 
-para de declarar uma variavel double:
+# para  declarar uma variavel double:
 numero = 0
+
 ou
+
 numero = 1+1
 
 ou
 
-numero = 4+4
+num = 1
+
+numero = 4 + num
 
 Só aceita uma operação 
+
+# para  declarar uma variavel string:
+nome = Leonardo
 ## leitura 
 para ler dados usa-se o comando ler:
 
@@ -32,6 +41,8 @@ mostrarln: digite um numero
 ler: numero
 
 ## condicao SE (IF)
+numero = 4
+
 se: numero > 0
 
   numero = 0
@@ -52,9 +63,9 @@ fimpara
 ## saidas (print)
 mostrarln: Ola tudo bem?  (desta forma tera um \n no final)
 
-mostrar: Ola tudo bem? (desta forma nao tera um \n no final)
+mostrar: Ola tudo bem? (desta forma NAO tera um \n no final)
 
- Mostrar variaveis:
+#Mostrar variaveis:
  
 nome = Leonardo
 
