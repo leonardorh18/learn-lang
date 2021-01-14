@@ -1,0 +1,21 @@
+numero = 0
+qntd = 0 
+
+mostrarln: Digite ate que numero quer saber pares e impares
+ler: qntd
+para: i = 1; i <= qntd; i = i + 1
+    numero = i%2
+    se: numero == 0
+        mostrar: i
+        mostrarln: eh par!!
+    fimse
+
+    se: numero != 0
+        mostrar: i
+        mostrarln: eh impar!!
+    fimse
+
+
+fimpara
+
+mostrarln: acabou!!
