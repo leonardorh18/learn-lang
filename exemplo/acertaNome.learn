@@ -1,0 +1,17 @@
+nome =Leonardo
+
+acerta = x
+
+para: i = 0; nome != acerta; i = i +1
+
+    mostrarln: Digite o nome para acertar 
+
+    ler: acerta
+
+    se: nome == acerta
+
+        mostrarln: Acertou!!!
+
+    fimse
+    
+fimpara

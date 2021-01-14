@@ -27,10 +27,13 @@ num = 1
 
 numero = 4 + num
 
-Só aceita uma operação 
+Só aceita uma operação e nao aceita operações com strings (por enquanto)
 
 # para  declarar uma variavel string:
-nome = Leonardo
+nome =Leonardo (desse jeito ele considera "Leonardo")
+
+
+nome = Leonardo (desse jeito ele considera " Leonardo", note o espaço antes do L)
 ## leitura 
 para ler dados usa-se o comando ler:
 
@@ -196,7 +199,7 @@ fimpara
 
 mostrarln: acabou!!
 
-# 2
+## 2
 
 num = 10
 
@@ -206,7 +209,7 @@ mostrarln: i
 
 fimpara
 
-# 3
+## 3
 
 a = 1 + 1
 
@@ -220,7 +223,7 @@ mostrar: Valor de B
 
 mostrarln: b
 
-# 4 
+## 4 
 
 i = 0
 j = i 
@@ -256,3 +259,21 @@ se: i == 3
     fimse 
 
 fimse
+ ## 5
+nome =Leonardo
+
+acerta = x
+
+para: i = 0; nome != acerta; i = i +1
+
+    mostrarln: Digite o nome para acertar 
+
+    ler: acerta
+
+    se: nome == acerta
+
+        mostrarln: Acertou!!!
+
+    fimse
+    
+fimpara
