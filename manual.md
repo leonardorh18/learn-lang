@@ -164,6 +164,7 @@ mostrar: v
 ## 1
 
 numero = 0
+
 qntd = 0 
 
 mostrarln: Digite ate que numero quer saber pares e impares
@@ -253,5 +254,5 @@ se: i == 3
         mostrarln: Erro!!
 
     fimse 
-    
+
 fimse
