@@ -1,0 +1,29 @@
+mostrarln: Digite um numero
+
+num = 0
+ler: num 
+
+para: i = num; i > 0 ; i = i - 1
+    
+
+    _resq = i % 4
+    _rest = i % 3
+    se: _resq == 0
+
+        mostrar: i
+
+        mostrarln: Eh multiplo de 4
+        
+        se: _rest == 0
+
+            mostrar: i
+
+            mostrarln: Eh multiplo de 3 tambem
+
+        fimse
+    fimse 
+
+
+fimpara
+
+mostrarln: acabou

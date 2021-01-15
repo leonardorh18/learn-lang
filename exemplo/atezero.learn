@@ -1,0 +1,9 @@
+mostrarln: Digite um numero
+
+ler: num 
+
+para: i = num; i >= 0 ; i = i - 1
+    
+    mostrarln: i 
+
+fimpara
