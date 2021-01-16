@@ -1,0 +1,20 @@
+para: b = 0; b < 10; b = b + 1
+    se: b > 2
+        mostrar: b
+        mostrarln: eh maior que 2
+
+        se: b > 4
+            mostrar: b
+            mostrarln: eh maior do que 4
+
+            se: b > 8
+            mostrar: b
+                mostrarln: eh maior do que 8
+            fimse
+
+        fimse
+
+    se: b == 9
+        mostrarln: eh nove !!!
+    fimse
+fimpara

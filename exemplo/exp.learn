@@ -1,0 +1,14 @@
+mostrarln: Numero que voce quer elevar
+ler: num 
+
+mostrarln: Expoente
+ler: exp 
+res = 1
+para: i = 1; i<=exp; i = i +1
+
+    res = res*num
+
+fimpara
+
+mostrar: Resultado eh 
+mostrarln: res
