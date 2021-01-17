@@ -347,23 +347,37 @@ num1 = 1
  
 
 para: i = 1; i <= 11; i = i + 1
+
+    se: aux == 10
+
+        aux = 0
+
+        se: num1 <= 10
+
+            num1 = num1 + 1
+
+            i = 0
+
+            mostrarln:  
+
+        fimse
+        
+    fimse
+
     res = num1 * i
+
     mostrar: num1 
+
     mostrar: x 
+
     mostrar: i
+
     mostrar: =  
+    
     mostrarln: res
 
     aux = aux + 1
 
-    se: aux == 10
-        aux = 0
-        se: num1 <= 10
-            num1 = num1 + 1
-            i = 0
-            mostrarln:  
-        fimse
-        
-    fimse
+
 
 fimpara
