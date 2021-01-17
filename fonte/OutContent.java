@@ -7,7 +7,7 @@ public class OutContent extends Treatment{
         this.doubleVariables = doubleVariables;
 
     }
-    
+    // REALIZA O PRINT COM OU SEM LN
     public void out_display(boolean ln, String text) {
     
         if (ln){
@@ -33,6 +33,7 @@ public class OutContent extends Treatment{
 
     }
 
+    // VERIFICA SE ESTA TENTANDRO PRINTAR UM VARIAVEL E SE ELA EXISTE
     public boolean output_is_variable(String text){
  
         if (sVariable.existing_variable_string(spaceTreatment(text), stringsVariables)){
@@ -49,7 +50,7 @@ public class OutContent extends Treatment{
         return false;
 
     }
-
+    //FAZ O PRINT DE UMA VARIAVEL
     public void out_variable(String text, boolean ln){
 
         if (dVariable.existing_variable_double(spaceTreatment(text), doubleVariables)){

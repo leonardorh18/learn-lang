@@ -17,7 +17,7 @@ public class DoubleVariable extends Variavel{
             System.out.println("Atribuição invalida");
         }
     }
-
+    // SET VALOR EM UM DADA VARIAVEL
     public void setInVar(String var, double valor, List<DoubleVariable> doubleVariables ){
 
         for (DoubleVariable s : doubleVariables){
@@ -34,6 +34,8 @@ public class DoubleVariable extends Variavel{
         return this.valor;
     }
 
+
+    // RETORNA O VALOR DE UMA VARIAVEL
     public double getValorInList(List<DoubleVariable> doubleVariables, String nome){
         
 
@@ -47,6 +49,7 @@ public class DoubleVariable extends Variavel{
         return this.valor;
     }
 
+    // VERIFICA SE A VARIAVEL EXISTE
     public boolean existing_variable_double(String var, List<DoubleVariable> doubleVariables){
 
         for (DoubleVariable s : doubleVariables){

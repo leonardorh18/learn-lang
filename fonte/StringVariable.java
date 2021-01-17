@@ -15,7 +15,7 @@ public class StringVariable extends Variavel{
             System.out.println("Atribuição invalida");
         }
     }
-
+    // SETA UM VALOR EM UM DETERMINADA VARIAVEL
     public void setInVar(String var, String valor, List<StringVariable> stringsVariables ){
 
         for (StringVariable s : stringsVariables){
@@ -27,7 +27,7 @@ public class StringVariable extends Variavel{
     
         }
     }
-
+// VERIFICA SE VARIAVEL EXISTE
     public boolean existing_variable_string(String var, List<StringVariable> stringsVariables){
         
         for (StringVariable s: stringsVariables){
@@ -40,7 +40,7 @@ public class StringVariable extends Variavel{
 
         return false;
     }
-
+    // RETORNA VALOR DE UMA VARIAVEL
     public String getValorInList(List<StringVariable> stringsVariables, String nome){
         
 

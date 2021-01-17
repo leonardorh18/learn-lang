@@ -14,6 +14,7 @@ public class Conditional extends Treatment {
 
     }
 
+    // FAZ A COMPARAÇÃO PARA DADA OPERAÇÃO
     public boolean compare(double v1, double v2, char op){
 
         if (op == '>'){
@@ -65,6 +66,8 @@ public class Conditional extends Treatment {
         return newtext;
     }
 
+    // VERIFICA AS CONDIÇÕES PARA VER SE É UMA CONDIÇÃO VALIDA POR EXEMPLO 3 > 4
+    
     public boolean verify_conditional(String text){
 
         if (text.contains("!=") ){

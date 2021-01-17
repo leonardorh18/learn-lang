@@ -18,7 +18,7 @@ public class Looping extends Treatment {
 
 
   
-
+    //VERIFICA SE A CONDIÇÃO PARA ENTRAR NO LOOPING É VALIDA
     public boolean loop_isvalid(String text){
         Conditional cond = new Conditional(stringsVariables, doubleVariables);
         String[] splt = text.split(";");
@@ -42,7 +42,7 @@ public class Looping extends Treatment {
     }
 
   
-
+    // EXECUTA O LOPPING
     public void do_para(){
     Conditional cond = new Conditional(stringsVariables, doubleVariables);
 

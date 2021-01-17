@@ -11,7 +11,8 @@ public class InputContent extends Treatment{
             this.doubleVariables = doubleVariables;
 
         }
-
+        // FAZ O TRATAMENTO DE UM INPUT
+        // VERIFICA SE A VARIAVEL JA EXISTE, SE A ENTRADA É VALIDA PARA O TIPO DELA.. 
     public void treat_input(String text){
 
         if (dVariable.existing_variable_double(spaceTreatment(text), doubleVariables)){

@@ -1,0 +1,11 @@
+letra = @
+soma =  
+
+aux = 6
+para: i = 0; i < 10; i = i + 1
+
+
+    soma = soma + letra 
+    mostrarln: soma
+
+fimpara
