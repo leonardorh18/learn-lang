@@ -1,0 +1,8 @@
+num = 0-3
+num2 = 0-10
+ 
+res = num * num2
+
+mostrarln: res
+mostrarln: num
+mostrarln: num2

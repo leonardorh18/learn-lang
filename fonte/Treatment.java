@@ -263,7 +263,7 @@ public class Treatment{
 
             if (isNumeric(op[0]) && isNumeric(op[1])){
 
-                res = Double.parseDouble(op[0]) + Double.parseDouble(op[1]);
+                res = Double.parseDouble(op[0]) - Double.parseDouble(op[1]);
 
             } else {
 
@@ -278,7 +278,7 @@ public class Treatment{
 
             if (isNumeric(op[0]) && isNumeric(op[1])){
 
-                res = Double.parseDouble(op[0]) + Double.parseDouble(op[1]);
+                res = Double.parseDouble(op[0]) * Double.parseDouble(op[1]);
 
             } else {
 
