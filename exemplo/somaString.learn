@@ -7,3 +7,13 @@ completo = nome + sobrenome
 
 mostrarln: completo
 
+mostrarln: Digite uma palavra 
+ler: _s1
+
+mostrarln:Digite outra palavra
+ler: _s2 
+
+res = _s1 + _s2 
+
+mostrarln: voce digitou ..
+mostrarln: res
