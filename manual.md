@@ -304,3 +304,30 @@ nome = nome + sobrenome
 
 mostrarln: nome
 
+## 7 
+
+mostrarln: Digite o numero da tabuada
+
+ler: num
+
+mostrarln: Tabuada ate que quanto?
+
+ler: quanto
+
+res = 0
+
+para: i = 0; i <= quanto; i = i +1
+
+    res = num * i 
+
+    mostrar: num
+
+    mostrar: x 
+
+    mostrar: i 
+
+    mostrar: eh igual a 
+
+    mostrarln: res 
+    
+fimpara
