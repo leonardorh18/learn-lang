@@ -8,6 +8,7 @@ para: i = num; i > 0 ; i = i - 1
 
     _resq = i % 4
     _rest = i % 3
+    _resn = i % 9
     se: _resq == 0
 
         mostrar: i
@@ -19,6 +20,14 @@ para: i = num; i > 0 ; i = i - 1
             mostrar: i
 
             mostrarln: Eh multiplo de 3 tambem
+
+            se: _resn == 0
+                
+                mostrar: i
+
+                mostrarln: Eh multiplo de 9 tambem
+
+            fimse
 
         fimse
     fimse 
