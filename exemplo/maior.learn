@@ -1,0 +1,12 @@
+mostrarln: quantos numeros vc quer digitar?
+ler: qnt
+maior = 0
+para: i = 0; i < qnt; i = i + 1
+    ler: num
+    se: num > maior 
+        maior = num 
+    fimse 
+fimpara 
+
+mostrarln: o maior eh = 
+mostrarln: maior
