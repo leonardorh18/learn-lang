@@ -10,6 +10,9 @@ se meu arquivo se chama teste.learn
 
 java Main teste
 
+ou
+
+java -jar learn.jar exemplo/maior
 
 
 ## declaracao de variavel
