@@ -1,12 +1,18 @@
 mostrarln: quantos numeros vc quer digitar?
 ler: qnt
 maior = 0
+menor = 9999999999999
 para: i = 0; i < qnt; i = i + 1
     ler: num
     se: num > maior 
         maior = num 
     fimse 
+    se: num < menor 
+        menor = num
+    fimse
 fimpara 
 
 mostrarln: o maior eh = 
 mostrarln: maior
+mostrarln: o menor eh = 
+mostrarln: menor
