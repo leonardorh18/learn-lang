@@ -1,10 +1,12 @@
+_tel = vazio
+
 mostrarln: Digite seu nome 
 ler: _nome
 
 mostrarln: Digite seu sobrenome
 ler: _snome
 
-mostrarln: Digite seu telefone ex: (49) 99123456
+mostrarln: Digite seu telefone ex
 ler: _tel 
 
 mostrarln: Digite sua idade
